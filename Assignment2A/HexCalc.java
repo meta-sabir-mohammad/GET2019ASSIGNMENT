@@ -72,11 +72,11 @@ public class HexCalc implements ArithmeticOperation,LogicalOperation {
 		
 		  //@firstOperandLength store length of parameter firstOperand
 		 
-		int firstOperandLength;
-		for(firstOperandLength=firstOperand.length()-1;firstOperandLength>=0;firstOperandLength--){
+		
+		for(int charIndex=firstOperand.length()-1;charIndex>=0;charIndex--){
 			
 			//@hexChar store character from given index
-			char hexChar = firstOperand.charAt(firstOperandLength);
+			char hexChar = firstOperand.charAt(charIndex);
 			
 			//if  @hexChar contain A-F than taking respective decimal from HashMap @hexToDecTable
 			if((int)hexChar>=asciiOfCharA&&(int)hexChar<=asciiOfCharF){
@@ -246,9 +246,9 @@ public class HexCalc implements ArithmeticOperation,LogicalOperation {
 		if(firstOperand.length()==secondOperand.length()){
 			
 			//if length equal than comparing each character 
-			for(int firstOperandLength=0;firstOperandLength<firstOperand.length();firstOperandLength++){
-				char firstOperandExtractedChar = firstOperand.charAt(0);
-				char secondOperandExtractedChar = secondOperand.charAt(0);
+			for(int charIndex=0;charIndex < firstOperand.length(); charIndex++){
+				char firstOperandExtractedChar = firstOperand.charAt(charIndex);
+				char secondOperandExtractedChar = secondOperand.charAt(charIndex);
 				//taking numeric value of character and comparing them 
 				if(Character.getNumericValue(firstOperandExtractedChar)!=Character.getNumericValue(secondOperandExtractedChar)){
 					return false;
@@ -286,9 +286,9 @@ public class HexCalc implements ArithmeticOperation,LogicalOperation {
 		if(firstOperand.length()==secondOperand.length()){
 
 			//if length equal than comparing each character 
-			for(int firstOperandLength=0;firstOperandLength<firstOperand.length();firstOperandLength++){
-				char firstOperandExtractedChar = firstOperand.charAt(0);
-				char secondOperandExtractedChar = secondOperand.charAt(0);
+			for(int charIndex=0; charIndex < firstOperand.length(); charIndex++){
+				char firstOperandExtractedChar = firstOperand.charAt(charIndex);
+				char secondOperandExtractedChar = secondOperand.charAt(charIndex);
 				//taking numeric value of character and comparing them 
 				if(Character.getNumericValue(firstOperandExtractedChar)>Character.getNumericValue(secondOperandExtractedChar)){
 					return true;
@@ -325,9 +325,9 @@ public class HexCalc implements ArithmeticOperation,LogicalOperation {
 		if(firstOperand.length()==secondOperand.length()){
 
 			//if length equal than comparing each character 
-			for(int firstOperandLength=0;firstOperandLength<firstOperand.length();firstOperandLength++){
-				char firstOperandExtractedChar = firstOperand.charAt(0);
-				char secondOperandExtractedChar = secondOperand.charAt(0);
+			for(int charIndex=0;charIndex<firstOperand.length();charIndex++){
+				char firstOperandExtractedChar = firstOperand.charAt(charIndex);
+				char secondOperandExtractedChar = secondOperand.charAt(charIndex);
 				//taking numeric value of character and comparing them 
 				if(Character.getNumericValue(firstOperandExtractedChar)<Character.getNumericValue(secondOperandExtractedChar)){
 					return true;
