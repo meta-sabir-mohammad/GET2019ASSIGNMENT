@@ -151,7 +151,7 @@ public class StringManipulation {
 	 * @return string after removing extra blank spaces from starting and ending of the string
 	 *  
 	 */
-	public static String removeBlankSpaces(String firstString) {
+	private String removeBlankSpaces(String firstString) {
 		int characterIndex;
 		//if first character of the string is a blank space
 		if(firstString.charAt(0)==' '){
