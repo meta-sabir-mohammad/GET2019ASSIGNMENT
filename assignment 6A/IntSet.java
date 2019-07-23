@@ -54,6 +54,7 @@ public class IntSet {
 			for (int secondIndex = 0; secondIndex < this.integerArray.length; secondIndex++) {
 				if (set.integerArray[firstIndex] == this.integerArray[secondIndex]) {
 					isSet = true;
+					break;
 				}
 			}
 			if (!isSet) { return false; }
