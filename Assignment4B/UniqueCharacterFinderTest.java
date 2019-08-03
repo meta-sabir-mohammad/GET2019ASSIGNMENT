@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * This is test class which test methods of UniqueCharacerFinder class
+ * This is test class which test methods of UniqueCharacterFinder class
  * @author Sabir
  */
 public class UniqueCharacterFinderTest {
