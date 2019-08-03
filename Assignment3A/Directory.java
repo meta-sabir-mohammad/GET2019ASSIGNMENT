@@ -3,42 +3,38 @@ package Assignment3A;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 
 /**
  * This class represent directory in file system
- * 
- * @author HP
- *
+ * @author Sabir
  */
 public class Directory {
 
 	// creation date and time
-	String dateTime;
+	final private String dateTime;
 	// parent directory
-	Directory parent;
+	final private Directory parent;
 	// name of directory
-	String name;
+	final private String name;
 	/*
 	 * HashMap<String,Directory> which store details about sub directories key is
 	 * the name of sub directory and value is their object
 	 */
-	HashMap<String, Directory> subDirectories = new HashMap<String, Directory>();
+	private HashMap<String, Directory> subDirectories = new HashMap<String, Directory>();
 
 	/**
 	 * Default constructor
-	 */
+	 *//*
 	public Directory() {
-	}
+	}*/
 
 	/**
 	 * Parameterized Constructor
-	 * 
-	 * @param name
-	 *            name of directory
-	 * @param parent
-	 *            object of Directory representing parent directory
+	 * @param name name of directory
+	 * @param parent object of Directory representing parent directory
 	 */
 	public Directory(String name, Directory parent) {
 		this.name = name;
@@ -49,7 +45,6 @@ public class Directory {
 
 	/**
 	 * This method return the date and time when directory is created
-	 * 
 	 * @return the dateTime
 	 */
 	public String getDateTime() {
@@ -57,9 +52,7 @@ public class Directory {
 	}
 
 	/**
-	 * This method return the object of Directory which contain reference to the
-	 * parent directory
-	 * 
+	 * This method return the object of Directory which contain reference to the parent directory
 	 * @return the parent directory reference object
 	 */
 	public Directory getParent() {
@@ -68,7 +61,6 @@ public class Directory {
 
 	/**
 	 * This method return the name of directory
-	 * 
 	 * @return the name
 	 */
 	public String getName() {
@@ -76,20 +68,16 @@ public class Directory {
 	}
 
 	/**
-	 * This method return the HashMap containing all sub directories of current
-	 * directory
-	 * 
-	 * @return the subDirectories
+	 * This method return the Collection containing all sub directories of current directory
+	 * @return Collection containing all sub directory of current directory
 	 */
-	public HashMap<String, Directory> getSubDirectories() {
-		return subDirectories;
+	public Collection<Directory> getSubDirectories() {
+		return this.subDirectories.values();
 	}
 
 	/**
 	 * This method add new sub directory to current directory
-	 * 
-	 * @param name
-	 *            name of sub directory
+	 * @param name name of sub directory
 	 * @return true if directory is added else false
 	 */
 	public boolean addSubDirectory(String name) {
@@ -100,12 +88,9 @@ public class Directory {
 
 	/**
 	 * This method change the current directory to given sub directory
-	 * 
-	 * @param nameOfSubDirectory
-	 *            name of sub directory
+	 * @param nameOfSubDirectory name of sub directory
 	 * @return object of sub directory
-	 * @throws Exception
-	 *             if given sub directory is not available
+	 * @throws Exception if given sub directory is not available
 	 */
 	public Directory changeCurrentDirectory(String nameOfSubDirectory) throws Exception {
 
@@ -124,7 +109,6 @@ public class Directory {
 
 	/**
 	 * This method change the current directory to its parent directory
-	 * 
 	 * @return object of parent directory
 	 * @throws Exception
 	 */
@@ -143,11 +127,9 @@ public class Directory {
 
 	/**
 	 * This method find and return all the sub directory of current directory
-	 * 
-	 * @return array of String contain name date and time of creation of all sub
-	 *         directory of current directory
+	 * @return array of String contain name date and time of creation of all sub directory of current directory
 	 */
-	public String[] getListOfSubDirectory() {
+	public String[] getDetailListOfSubDirectory() {
 
 		int totalDirectories = this.subDirectories.size();
 		String[] listOfSubDirectory = new String[totalDirectories + 1];
@@ -162,7 +144,6 @@ public class Directory {
 
 	/**
 	 * This method find and return the path from root to current directory
-	 * 
 	 * @return String containing the path form root to current directory
 	 */
 	public String getDirectoryPath() {
@@ -185,11 +166,8 @@ public class Directory {
 
 	/**
 	 * This method find path from current directory to given start directory
-	 * 
-	 * @param startDirectory
-	 *            object of directory till path need to find
-	 * @return String containing path from current directory to given start
-	 *         directory
+	 * @param startDirectory object of directory till path need to find
+	 * @return String containing path from current directory to given start directory
 	 */
 	private String getDirectoryPath(Directory startDirectory) {
 
@@ -210,11 +188,8 @@ public class Directory {
 	}
 
 	/**
-	 * This method find given directory in current directory and its sub directories
-	 * recursivly
-	 * 
-	 * @param directoryName
-	 *            name of directory need to be find
+	 * This method find given directory in current directory and its sub directories Recursively
+	 * @param directoryName name of directory need to be find
 	 * @return path of all matched directories form current directory
 	 */
 	public String[] findDirectory(String directoryName) {
@@ -229,17 +204,11 @@ public class Directory {
 	}
 
 	/**
-	 * This method find given directory in all sub directory of given current
-	 * directory
-	 * 
-	 * @param foundDirectoriesPath
-	 *            ArrayList containing path of found directories till now
-	 * @param startDirectory
-	 *            object of directory till the path need to find
-	 * @param currentDirectory
-	 *            object of current directory which sub directories need to be check
-	 * @param directoryName
-	 *            name of directory which need to be find
+	 * This method find given directory in all sub directory of given current directory
+	 * @param foundDirectoriesPath ArrayList containing path of found directories till now
+	 * @param startDirectory object of directory till the path need to find
+	 * @param currentDirectory object of current directory which sub directories need to be check
+	 * @param directoryName name of directory which need to be find
 	 * @return path of all found directories from start directory
 	 */
 	private ArrayList<String> findDirectoryInSubDirectories(ArrayList<String> foundDirectoriesPath,
