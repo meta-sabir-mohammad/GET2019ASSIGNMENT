@@ -8,7 +8,7 @@ package Assignment4A;
 public class Employee implements Comparable<Employee>{
 	
 	//employee id
-	private final String EMPID;
+	private final String EmpId;
 	private final String name;
 	private final String address;
 	
@@ -18,8 +18,8 @@ public class Employee implements Comparable<Employee>{
 	 * @param name String type employee name
 	 * @param address String type employee address
 	 */
-	public Employee(String EMPID,String name,String address){
-		this.EMPID=EMPID;
+	public Employee(String EmpId,String name,String address){
+		this.EmpId=EmpId;
 		this.name=name;
 		this.address=address;
 	}
@@ -28,8 +28,8 @@ public class Employee implements Comparable<Employee>{
 	 * This method return employee id
 	 * @return String type Employee Id
 	 */
-	public String getEMPID() {
-		return EMPID;
+	public String getEmpId() {
+		return EmpId;
 	}
 	
 	/**
@@ -55,6 +55,6 @@ public class Employee implements Comparable<Employee>{
 	 */
 	@Override
 	public int compareTo(Employee employee) {
-		return this.getEMPID().compareTo(employee.getEMPID());
+		return this.getEmpId().compareTo(employee.getEmpId());
 	}
 }
