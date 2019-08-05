@@ -23,7 +23,7 @@ public class MassCalculator {
 		
 		this.formulaArray=formula.split("");
 		this.formulaList=new ArrayList<String>();
-		elementCombiner();
+		elementAndCoefficientCombiner();
 		int massOfFormula=0;
 		for(int indexFirst=0;indexFirst<this.formulaList.size();indexFirst++){
 			String element=this.formulaList.get(indexFirst);
@@ -43,7 +43,7 @@ public class MassCalculator {
 	 * This method adds individual organic element to List with there coefficients from given formula
 	 * @throws Exception for unclosed Parenthesis in the formula
 	 */
-	private void elementCombiner() throws Exception{
+	private void elementAndCoefficientCombiner() throws Exception{
 		
 		for(int indexFirst=0;indexFirst<this.formulaArray.length;indexFirst++) {
 			if(this.formulaArray[indexFirst].equals("C") || this.formulaArray[indexFirst].equals("H") || this.formulaArray[indexFirst].equals("O")) {
