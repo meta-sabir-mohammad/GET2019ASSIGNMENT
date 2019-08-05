@@ -51,7 +51,12 @@ public class MassCalculator {
 			}
 			else{
 				if(this.formulaArray[indexFirst].equals("(")){
-					int indexOfClosingBracket=getIndexOfClosingBracket(indexFirst);
+					try{
+						int indexOfClosingBracket=getIndexOfClosingBracket(indexFirst);
+					}catch(Exception e){
+						throw e;
+					}
+					
 					String coefficient=getNumericCoefficient(indexOfClosingBracket+1);
 					indexFirst++;
 					while(indexFirst!=indexOfClosingBracket){
