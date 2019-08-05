@@ -53,18 +53,17 @@ public class MassCalculator {
 				if(this.formulaArray[indexFirst].equals("(")){
 					try{
 						int indexOfClosingBracket=getIndexOfClosingBracket(indexFirst);
+						String coefficient=getNumericCoefficient(indexOfClosingBracket+1);
+						indexFirst++;
+						while(indexFirst!=indexOfClosingBracket){
+							if(this.formulaArray[indexFirst].equals("C") || this.formulaArray[indexFirst].equals("H") || this.formulaArray[indexFirst].equals("O")) {
+								String element=getElementWithItsCoefficient(indexFirst);
+								this.formulaList.add(element.substring(0,1)+(Integer.toString((Integer.parseInt(element.substring(1)))*(Integer.parseInt(coefficient)))));
+							}
+							indexFirst++;
+						}
 					}catch(Exception e){
 						throw e;
-					}
-					
-					String coefficient=getNumericCoefficient(indexOfClosingBracket+1);
-					indexFirst++;
-					while(indexFirst!=indexOfClosingBracket){
-						if(this.formulaArray[indexFirst].equals("C") || this.formulaArray[indexFirst].equals("H") || this.formulaArray[indexFirst].equals("O")) {
-							String element=getElementWithItsCoefficient(indexFirst);
-							this.formulaList.add(element.substring(0,1)+(Integer.toString((Integer.parseInt(element.substring(1)))*(Integer.parseInt(coefficient)))));
-						}
-						indexFirst++;
 					}
 				}	
 			}
