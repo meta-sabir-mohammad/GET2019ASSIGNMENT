@@ -23,7 +23,6 @@ public class EmployeeOperation {
 			return true;
 		} catch (Exception e) {
 			System.out.println(e);
-			throw e;
 		}
 	}
 
@@ -75,7 +74,6 @@ public class EmployeeOperation {
 			this.employeeList.add(firstEmployeeIndex, employee);
 		} catch (Exception e) {
 			System.out.println(e);
-			throw e;
 		}
 	}
 }
