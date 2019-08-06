@@ -13,7 +13,7 @@ public class EmployeeOperation {
 
 	/**
 	 * This method is use to add employee to employee list
-	 * @param employeeobject of Employee class containing details of employee to be added
+	 * @param employee object of Employee class containing details of employee to be added
 	 * @return true if added successfully else false
 	 */
 	public boolean addEmployee(Employee employee) {
@@ -63,8 +63,8 @@ public class EmployeeOperation {
 
 	/**
 	 * This method is used to rearrange two employee position in list
-	 * @param firstEmployeeIndexindex of first employee
-	 * @param secondEmployeeIndexindex of second employee
+	 * @param employeeNewIndex new index where employee need to be added
+	 * @param employeeOldIndex old index where employee currently is
 	 */
 	private void arrangeEmployee(int employeeNewIndex, int employeeOldIndex) {
 
