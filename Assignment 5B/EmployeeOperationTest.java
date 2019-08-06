@@ -18,7 +18,7 @@ class EmployeeOperationTest {
 	 * EmployeeOperation class
 	 */
 	@Test
-	void testGetSortEmployeeList() {
+	void getSortedEmployeeListMethodPositiveCasesTest() {
 
 		try {
 			Employee emp1 = new Employee(1, "sabir", "chittorgarh", 20000, 21);
@@ -46,7 +46,6 @@ class EmployeeOperationTest {
 				assertTrue(expectedList.get(0).getEmpName().equalsIgnoreCase(actualList.get(0).getEmpName()));
 			}
 		} catch (Exception e) {
-
 			e.printStackTrace();
 		}
 
