@@ -39,19 +39,19 @@ public class EmployeeOperation {
 			}
 			for (int currentEmployeeIndex = 1; currentEmployeeIndex < this.employeeList
 					.size(); currentEmployeeIndex++) {
-				int firstEmployeeIndex = 0;
-				while (firstEmployeeIndex <= currentEmployeeIndex) {
-					if (this.employeeList.get(firstEmployeeIndex).getEmpSalary() < this.employeeList
+				int employeeIndex = 0;
+				while (employeeIndex <= currentEmployeeIndex) {
+					if (this.employeeList.get(employeeIndex).getEmpSalary() < this.employeeList
 							.get(currentEmployeeIndex).getEmpSalary()) {
-						arrangeEmployee(firstEmployeeIndex, currentEmployeeIndex);
-					} else if (this.employeeList.get(firstEmployeeIndex).getEmpSalary() == this.employeeList
+						arrangeEmployee(employeeIndex, currentEmployeeIndex);
+					} else if (this.employeeList.get(employeeIndex).getEmpSalary() == this.employeeList
 							.get(currentEmployeeIndex).getEmpSalary()) {
-						if (this.employeeList.get(firstEmployeeIndex).getEmpAge() > this.employeeList
+						if (this.employeeList.get(employeeIndex).getEmpAge() > this.employeeList
 								.get(currentEmployeeIndex).getEmpAge()) {
-							arrangeEmployee(firstEmployeeIndex, currentEmployeeIndex);
+							arrangeEmployee(employeeIndex, currentEmployeeIndex);
 						}
 					}
-					firstEmployeeIndex++;
+					employeeIndex++;
 				}
 			}
 			return this.employeeList;
@@ -66,12 +66,12 @@ public class EmployeeOperation {
 	 * @param firstEmployeeIndexindex of first employee
 	 * @param secondEmployeeIndexindex of second employee
 	 */
-	private void arrangeEmployee(int firstEmployeeIndex, int secondEmployeeIndex) {
+	private void arrangeEmployee(int employeeNewIndex, int employeeOldIndex) {
 
 		try {
-			Employee employee = this.employeeList.get(secondEmployeeIndex);
-			this.employeeList.remove(secondEmployeeIndex);
-			this.employeeList.add(firstEmployeeIndex, employee);
+			Employee employee = this.employeeList.get(employeeOldIndex);
+			this.employeeList.remove(employeeOldIndex);
+			this.employeeList.add(employeeNewIndex, employee);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
