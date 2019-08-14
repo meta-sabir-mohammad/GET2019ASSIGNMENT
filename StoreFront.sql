@@ -48,9 +48,12 @@ AddressId int NOT NULL AUTO_INCREMENT,
 
   			
 ShopperId int NOT NULL,
-			Address VARCHAR(255) NOT NULL,
+			HouseNo VARCHAR(255) NOT NULL,
+			Area VARCHAR(255) NOT NULL,
+			State VARCHAR(255) NOT NULL,
+			ZipCode VARCHAR(6) NOT NULL,
+			city VARCHAR(255) NOT NULL,
 			KEY (AddressId),
-			KEY (Address),
 			PRIMARY KEY (ShopperId,AddressId),
   
 			FOREIGN KEY (ShopperId) REFERENCES shopper (ShopperId)
@@ -75,7 +78,7 @@ CREATE TABLE category (
   
 			CategoryId int NOT NULL AUTO_INCREMENT,
   
-			Categoryname varchar(50) NOT NULL,
+			CategoryName varchar(50) NOT NULL,
 			ParentCategoryId int NOT NULL DEFAULT 0,
   
 			PRIMARY KEY (CategoryId)
@@ -85,9 +88,9 @@ CREATE TABLE category (
 
 
 CREATE TABLE product (
-			Productid int NOT NULL AUTO_INCREMENT,
+			ProductId int NOT NULL AUTO_INCREMENT,
   
-			Productname varchar(50) NOT NULL,
+			ProductName varchar(50) NOT NULL,
 
 			Price double NOT NULL,
 			Description varchar(1000) NOT NULL,  
@@ -104,7 +107,7 @@ CREATE TABLE images (
 			ImageId int NOT NULL AUTO_INCREMENT,
   
 			ProductId int,
-			ImageUrl varchar(500) NOT NULL,
+			Url varchar(500) NOT NULL,
   
 			PRIMARY KEY (Imageid),
   
@@ -134,12 +137,41 @@ CREATE TABLE Orders (
 			ShopperId int NOT NULL,
 
   
-			ShippingAddress VARCHAR(255) NOT NULL,
+			AddressId int NOT NULL,
 
+			OrderTotal double NOT NUll,
+			OrderDate DATE NOT NULL,
 			PRIMARY KEY (OrderId),
 
 			FOREIGN KEY (ShopperId) REFERENCES shopper (ShopperId),
 
-			FOREIGN KEY (ShippingAddress) REFERENCES address (Address)
+			FOREIGN KEY (AddressId) REFERENCES address(AddressId)
 			);
+
+CREATE TABLE orderedProducts(
+			OrderId int NOT NULL,
+			ProductId int NOT NULL,
+			Quantity int NOT NULL DEFAULT 0,
+			PRIMARY KEY (orderID,productId),
+			FOREIGN KEY (orderId) REFERENCES orders (orderId),
+			FOREIGN KEY (productId) REFERENCES product (productId)
+			);
+
+CREATE TABLE orderStatus (
+
+  
+			OrderId int NOT NULL,
+ 
+			ProductId int NOT NULL,
+ 
+			
+			Status VARCHAR(20) CHECK(Status IN ('Shipped', 'Cancelled', 'Returned', 'Not Shipped')),
+			ShippingDate DATE ,
+  
+			PRIMARY KEY (orderId,productId),
+
+			FOREIGN KEY (orderId) REFERENCES orders (orderId),
+			FOREIGN KEY (productId) REFERENCES orderedProducts (productId)
+			);
+
 

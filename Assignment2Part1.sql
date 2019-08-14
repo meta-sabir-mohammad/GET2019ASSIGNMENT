@@ -35,45 +35,62 @@ Select userId from user where UserType='Shopper';
 /**
   * Data Insertion in Address Table
   */
-INSERT INTO address (addressId,shopperId,address)
-
-
-VALUES(1,2,'First Add');
+INSERT INTO address (addressId,shopperId,houseNo,area,state,zipCode,city)
 
 
 
-INSERT INTO address (addressId,shopperId,address)
-
-
-VALUES(2,2,'Sec Add');
+VALUES(1,2,'house 1 of 2','Area of 2','State of 2','222222','City of 2');
 
 
 
-INSERT INTO address (addressId,shopperId,address)
 
 
-VALUES(3,2,'Third Add');
-
-
-
-INSERT INTO address (addressId,shopperId,address)
-
-
-VALUES(4,3,'First Add');
+INSERT INTO address (addressId,shopperId,houseNo,area,state,zipCode,city)
 
 
 
-INSERT INTO address (addressId,shopperId,address)
-
-
-VALUES(5,4,'First Add');
+VALUES(2,2,'house 2 of 2','Area of 2','State of 2','222222','City of 2');
 
 
 
-INSERT INTO address (addressId,shopperId,address)
 
 
-VALUES(6,4,'Sec Add');
+INSERT INTO address (addressId,shopperId,houseNo,area,state,zipCode,city)
+
+
+
+VALUES(3,2,'house 3 of 2','Area of 2','State of 2','222222','City of 2');
+
+
+
+
+
+INSERT INTO address (addressId,shopperId,houseNo,area,state,zipCode,city)
+
+
+
+VALUES(4,3,'house 1 of 3','Area of 3','State of 3','333333','City of 3');
+
+
+
+
+
+INSERT INTO address (addressId,shopperId,houseNo,area,state,zipCode,city)
+
+
+
+VALUES(5,4,'house 1 of 4','Area of 4','State of 4','444444','City of 4');
+
+
+
+
+
+INSERT INTO address (addressId,shopperId,houseNo,area,state,zipCode,city)
+
+
+
+VALUES(6,4,'house 2 of 4','Area of 4','State of 4','444444','City of 4');
+
 
 
 /**
@@ -1226,31 +1243,267 @@ VALUES(26,18);
   * Data Insertion in Orders Table
   */
 
-INSERT INTO Orders (shopperId,shippingAddress)
-
-VALUES(2,'First Add');
+INSERT INTO orders (shopperId,addressId,orderDate,orderTotal)
 
 
-INSERT INTO Orders (shopperId,shippingAddress)
-
-VALUES(2,'Third Add');
+VALUES(2,2,'2019-08-14',35999);
 
 
-INSERT INTO Orders (shopperId,shippingAddress)
 
-VALUES(3,'First Add');
-
-
-INSERT INTO Orders (shopperId,shippingAddress)
-
-VALUES(4,'Sec Add');
+INSERT INTO orders (shopperId,addressId,orderDate,orderTotal)
 
 
-INSERT INTO Orders (shopperId,shippingAddress)
-
-VALUES(4,'First Add');
+VALUES(4,6,'2019-07-14',33000);
 
 
-INSERT INTO Orders (shopperId,shippingAddress)
 
-VALUES(2,'Sec Add');
+INSERT INTO orders (shopperId,addressId,orderDate,orderTotal)
+
+
+VALUES(3,3,'2019-08-01',43999);
+
+
+
+INSERT INTO orders (shopperId,addressId,orderDate,orderTotal)
+
+
+VALUES(2,3,'2018-04-11',33000);
+
+
+
+INSERT INTO orders (shopperId,addressId,orderDate,orderTotal)
+
+
+VALUES(4,5,'2019-08-14',65999);
+
+
+
+INSERT INTO orders (shopperId,addressId,orderDate,orderTotal)
+
+
+VALUES(4,6,'2019-02-14',77999);
+
+
+
+
+
+
+/**
+  * Data Insertion in orderedProducts Table
+  */
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(1,24,2);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(1,3,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(2,11,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(2,18,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(3,4,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(3,13,1);
+
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(4,11,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(4,18,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(5,17,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(5,26,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(5,3,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(6,16,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(6,25,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(6,1,1);
+
+
+
+INSERT INTO orderedProducts (orderId,productId,quantity)
+
+
+VALUES(6,9,1);
+
+/**
+  * Data Insertion in orderStatus Table
+  */
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(1,24,'Not Shipped','2019-08-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(1,3,'Not Shipped','2019-08-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(2,11,'Shipped','2019-07-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(2,18,'Returned','2019-07-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(3,4,'Shipped','2019-08-10');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(3,13,'Cancelled','2019-08-10');
+
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(4,11,'Shipped','2018-04-21');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(4,18,'Returned','2018-04-21');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(5,17,'Not Shipped','2019-08-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(5,26,'Cancelled','2019-08-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(5,3,'Not Shipped','2019-08-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(6,16,'Shipped','2019-02-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(6,25,'Returned','2019-02-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(6,1,'Shipped','2019-02-24');
+
+
+
+INSERT INTO orderStatus (orderId,productId,status,shippingDate)
+
+
+VALUES(6,9,'Cancelled','2019-02-24');
