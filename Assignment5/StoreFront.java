@@ -98,39 +98,4 @@ public class StoreFront {
 			throw e;
 		}
 	}
-
-	public static void main(String args[]){
-
-		StoreFront storeFront = new StoreFront();
-		try{
-			List<Order> ordersList = new ArrayList<Order>();
-			ordersList = storeFront.getAllOrdersOfUser(4);
-			for(Order order : ordersList){
-				System.out.println(order.getOrderId());
-				System.out.println(order.getOrderDate());
-				System.out.println(order.getOrderTotal());
-			}
-			
-			List<Image> imageList = new ArrayList<Image>();
-			Image image = new Image();
-			image.setProductId(1);
-			image.setImageUrl("www.product1.com/image1");
-			imageList.add(image);
-			image = new Image();
-			image.setProductId(2);
-			image.setImageUrl("www.product2.com/image2");
-			imageList.add(image);
-			System.out.println(storeFront.addImagesOfProduct(imageList));
-			System.out.println(storeFront.deleteNotPurchasedProducts());
-			
-			List<Category> categoryList = new ArrayList<Category>();
-			categoryList = storeFront.getParentCategorysAndTotalChilds();
-			for(Category category : categoryList){
-				System.out.println(category.getCategoryName());
-				System.out.println(category.getTotalChlidCategory());
-			}
-		}catch(Exception e){
-
-		}
-	}
 }
