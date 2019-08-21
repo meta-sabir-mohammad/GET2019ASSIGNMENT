@@ -25,9 +25,9 @@ public class StoreFrontDAO {
 	public List<Order> getAllShippedOrdersOfUser(int userId) throws SQLException,Exception {
 
 		Connection connection = null;
+		PreparedStatement preStmt = null;
 		try {
 			connection = ConnectionFactory.getConnection();
-			PreparedStatement preStmt;
 			preStmt = connection.prepareStatement(StoreFrontQuerys.GET_ALL_SHIPPED_ORDERS_OF_USER);
 			System.out.println(StoreFrontQuerys.GET_ALL_SHIPPED_ORDERS_OF_USER);
 			preStmt.setInt(1, userId);
@@ -50,6 +50,7 @@ public class StoreFrontDAO {
 		}
 		finally{
 			connection.close();
+			preStmt.close();
 		}
 
 	}
@@ -64,9 +65,10 @@ public class StoreFrontDAO {
 	public boolean addImagesOfProduct(List<Image> imageList) throws SQLException,Exception{
 
 		Connection connection = null;
+		PreparedStatement preStmt = null;
 		try {
 			connection = ConnectionFactory.getConnection();
-			PreparedStatement preStmt;
+			
 			preStmt = connection.prepareStatement(StoreFrontQuerys.INSERT_IMAGE_OF_PRODUCT);
 			for(Image image : imageList){
 				preStmt.setInt(1, image.getProductId());
@@ -89,6 +91,7 @@ public class StoreFrontDAO {
 		}
 		finally{
 			connection.close();
+			preStmt.close();
 		}
 	}
 	
@@ -101,9 +104,10 @@ public class StoreFrontDAO {
 	public int deleteNotPurchasedProducts() throws SQLException,Exception{
 		
 		Connection connection = null;
+		PreparedStatement preStmt = null;
 		try {
 			connection = ConnectionFactory.getConnection();
-			PreparedStatement preStmt;
+			
 			preStmt = connection.prepareStatement(StoreFrontQuerys.DELETE_NOT_PURCHASED_PRODUCTS);
 			int result = preStmt.executeUpdate();
 			int numberOfUseLessRow = 2;
@@ -117,6 +121,7 @@ public class StoreFrontDAO {
 		}
 		finally{
 			connection.close();
+			preStmt.close();
 		}
 	}
 	
@@ -129,9 +134,10 @@ public class StoreFrontDAO {
 	public List<Category> getParentCategorysAndTotalChilds() throws SQLException,Exception{
 		
 		Connection connection = null;
+		PreparedStatement preStmt = null;
 		try {
 			connection = ConnectionFactory.getConnection();
-			PreparedStatement preStmt;
+			
 			preStmt = connection.prepareStatement(StoreFrontQuerys.GET_TOP_CATEGORY_NAME_AND_CHILDS);
 			ResultSet result = preStmt.executeQuery();
 			List<Category> categoryList = new ArrayList<Category>();
@@ -151,6 +157,7 @@ public class StoreFrontDAO {
 		}
 		finally{
 			connection.close();
+			preStmt.close();
 		}
 	}
 }
