@@ -106,7 +106,8 @@ public class StoreFrontDAO {
 			PreparedStatement preStmt;
 			preStmt = connection.prepareStatement(StoreFrontQuerys.DELETE_NOT_PURCHASED_PRODUCTS);
 			int result = preStmt.executeUpdate();
-			return (result-2);
+			int numberOfUseLessRow = 2;
+			return (result-numberOfUseLessRow);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw e;
