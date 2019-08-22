@@ -47,7 +47,8 @@ BEGIN
 SELECT 
     product.ProductId AS 'Id',
     product.ProductName AS 'Name',
-    SUM(orderedproducts.Quantity) AS 'Total Sell'
+    ((product.Price*SUM(orderedproducts.Quantity)) /
+    COUNT(orders.OrderId))  AS 'Average Sell'
 FROM
     product
         INNER JOIN
