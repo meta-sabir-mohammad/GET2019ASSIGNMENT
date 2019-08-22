@@ -70,20 +70,21 @@ Start date and end date will be input parameter. Put validation on input dates l
 If start date is greater than end date take first date of month as start date.
 */
 2.
-DELIMITER //
+DELIMITER $$
 CREATE PROCEDURE order_status (startdate DATE , enddate DATE)
    DETERMINISTIC
            BEGIN
 IF(startdate > enddate ) 
 THEN SET startdate = (DAY(startdate) = 01 AND MONTH(startdate) = MONTH(enddate) AND YEAR(startdate) = YEAR(enddate));
                END IF;
-SELECT orderedProducts.orderId AS orderId , orderedProducts.productId AS productId , orderstatus.status AS status , orders.orderdate AS dateOfOrder 
-FROM orderedProducts INNER JOIN orderstatus ON orderedProducts.orderId = orderstatus.orderId AND orderedProducts.productId = orderstatus.productId
-LEFT JOIN orders ON orderedProducts.orderId = orders.orderId
-WHERE orders.orderDate >= startdate AND orders.orderdate <= enddate
-ORDER BY (orderId);
-           END;
-// DELIMITER ;
+SELECT orderedproducts.OrderId AS 'Order Id' , orderedproducts.ProductId AS 'Product Id' , orderstatus.Status AS 'Status' , orders.OrderDate AS 'Date Of Order' 
+FROM orderedproducts INNER JOIN orderstatus ON orderedproducts.OrderId = orderstatus.OrderId AND orderedproducts.ProductId = orderstatus.ProductId
+INNER JOIN orders ON orderedProducts.OrderId = orders.OrderId
+WHERE orders.OrderDate >= startdate AND orders.OrderDate <= enddate
+ORDER BY (orderedproducts.OrderId);
+           END
+$$
+DELIMITER ;
 
 CALL order_status('2019-07-05','2019-08-21');
 
