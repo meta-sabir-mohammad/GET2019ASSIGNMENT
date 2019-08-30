@@ -1,0 +1,73 @@
+SELECT * FROM studentmanagementsystem.student;
+use studentmanagementsystem
+
+UPDATE student SET student.FirstName = firstName ,student.LastName = lastName, student.FatherName = fatherName,student.Email = email, student.Class = class,student.Age = age WHERE student.id = 1;
+
+DELIMITER $$
+CREATE PROCEDURE UpdateStudentDetail(IN firstName varchar(45),IN lastName varchar(45), IN fatherName varchar(45),IN email varchar(45),IN class varchar(45),IN age double)
+BEGIN
+UPDATE student SET student.FirstName = firstName ,student.LastName = lastName, student.FatherName = fatherName,student.Email = email, student.Class = class,student.Age = age WHERE student.Id = id;
+END
+$$
+
+DELIMITER ;
+
+call UpdateStudentDetail('sab','mohammad','abdul hakeem mansuri','sabirmansuri900@gmail.com','BTech',25);
+
+DELIMITER $$
+CREATE PROCEDURE GetStudentDetailById(IN id int)
+BEGIN
+SELECT Id,FirstName,LastName,FatherName,Email,Class,Age FROM student WHERE student.Id = id;
+END
+$$
+
+DELIMITER ;
+
+call GetStudentDetailById(1);
+
+SELECT FirstName,LastName,FatherName,Email,Class,Age FROM student WHERE student.FirstName = firstName ORDER BY student.Class,student.FirstName;
+SELECT FirstName,LastName,FatherName,Email,Class,Age FROM student WHERE student.LastName = lastName ORDER BY student.Class,student.LastName;
+SELECT FirstName,LastName,FatherName,Email,Class,Age FROM student WHERE student.FirstName = firstName AND student.LastName = lastName ORDER BY student.Class,student.FirstName,student.LastName;
+
+DELIMITER $$
+CREATE PROCEDURE GetStudentDetailByName(IN firstName varchar(45),IN lastName varchar(45))
+BEGIN
+IF(firstName <> "" AND lastName = "") THEN
+SELECT student.FirstName,student.LastName,student.FatherName,student.Email,student.Class,student.Age FROM student WHERE student.FirstName = firstName ORDER BY student.Class,student.FirstName;
+ELSEIF(firstName = "" AND lastName <> "") THEN
+SELECT student.FirstName,student.LastName,student.FatherName,student.Email,student.Class,student.Age FROM student WHERE student.LastName = lastName ORDER BY student.Class,student.LastName;
+ELSE
+SELECT student.FirstName,student.LastName,student.FatherName,student.Email,student.Class,student.Age FROM student WHERE student.FirstName = firstName AND student.LastName = lastName ORDER BY student.Class,student.FirstName,student.LastName;
+END IF;
+
+END
+$$
+DELIMITER ;
+
+call GetStudentDetailByName('','mohammad');
+
+DELIMITER $$
+CREATE PROCEDURE GetStudentDetailByNameFilterByClass(IN firstName varchar(45),IN lastName varchar(45),IN filterByClass TINYINT)
+BEGIN
+IF(filterByClass = 1) THEN
+IF(firstName <> "" AND lastName = "") THEN
+SELECT student.FirstName,student.LastName,student.FatherName,student.Email,student.Class,student.Age FROM student WHERE student.FirstName = firstName ORDER BY student.Class,student.FirstName;
+ELSEIF(firstName = "" AND lastName <> "") THEN
+SELECT student.FirstName,student.LastName,student.FatherName,student.Email,student.Class,student.Age FROM student WHERE student.LastName = lastName ORDER BY student.Class,student.LastName;
+ELSE
+SELECT student.FirstName,student.LastName,student.FatherName,student.Email,student.Class,student.Age FROM student WHERE student.FirstName = firstName AND student.LastName = lastName ORDER BY student.Class,student.FirstName,student.LastName;
+END IF;
+ELSE
+IF(firstName <> "" AND lastName = "") THEN
+SELECT student.FirstName,student.LastName,student.FatherName,student.Email,student.Class,student.Age FROM student WHERE student.FirstName = firstName ORDER BY student.FirstName;
+ELSEIF(firstName = "" AND lastName <> "") THEN
+SELECT student.FirstName,student.LastName,student.FatherName,student.Email,student.Class,student.Age FROM student WHERE student.LastName = lastName ORDER BY student.LastName;
+ELSE
+SELECT student.FirstName,student.LastName,student.FatherName,student.Email,student.Class,student.Age FROM student WHERE student.FirstName = firstName AND student.LastName = lastName ORDER BY student.FirstName,student.LastName;
+END IF;
+END IF;
+END
+$$
+DELIMITER ;
+
+call GetStudentDetailByNameFilterByClass('','mohammad',1);
