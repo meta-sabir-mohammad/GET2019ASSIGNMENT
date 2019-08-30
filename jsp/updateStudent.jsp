@@ -5,32 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<style>
-	body{
-	font-size : 20px;
-	}
-	input[type=text],[type=email] {
-  	width: 100%;
-  	padding: 12px 20px;
-  	margin: 4px 0;
-  	box-sizing: border-box;
-	}
-	input[type=text]:focus {
-  border: 1px solid #4CAF50;
-}
-input[type=submit]{
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-table{
-width: 30%;
-}
-</style>
+
+<link rel = "stylesheet" type = "text/css" href = "../css/main.css" />
 </head>
 <body>
 <%@ page import="com.sms.dto.Student" %>
@@ -43,7 +19,7 @@ width: 30%;
 		%>
 		<div align="center">
 		<form action="../UpdateStudentDetailServlet" method="POST">
-			<table>
+			<table id="upateFormTable">
 				<tr>
 					<td>
 					<label>Id : </label>
@@ -57,7 +33,7 @@ width: 30%;
 					<label>First Name : </label>
 					</td>
 					<td>
-						<input type="text" name="firstName" id="firstName" value="<%=student.getFirstName()%>" placeholder="Enter first name">
+						<input type="text" name="firstName" id="firstName" value="<%=student.getFirstName()%>" pattern="[a-zA-Z]+" minlength="2" maxlength="45" placeholder="Enter first name" required>
 					</td>
 				</tr>
 				<tr>
@@ -65,7 +41,7 @@ width: 30%;
 					<label>Last Name : </label>
 					</td>
 					<td>
-						<input type="text" name="lastName" id="lastName" value="<%=student.getLastName()%>">
+						<input type="text" name="lastName" id="lastName" value="<%=student.getLastName()%>" pattern="[a-zA-Z]+" minlength="2" maxlength="45" placeholder="Enter your last name" required>
 					</td>
 				</tr>
 				<tr>
@@ -73,7 +49,7 @@ width: 30%;
 					<label>Father's Name : </label>
 					</td>
 					<td>
-						<input type="text" name="fatherName" id="fatherName" value="<%=student.getFatherName()%>">
+						<input type="text" name="fatherName" id="fatherName" value="<%=student.getFatherName()%>" pattern="[a-z A-Z]+" minlength="2" maxlength="45" placeholder="Enter your father name" required>
 					</td>
 				</tr>
 				<tr>
@@ -81,7 +57,7 @@ width: 30%;
 					<label>Email : </label>
 					</td>
 					<td>
-						<input type="email" name="email" id="email" value="<%=student.getEmail()%>">
+						<input type="email" name="email" id="email" value="<%=student.getEmail()%>"  maxlength="45" placeholder="Enter your email" required>
 					</td>
 				</tr>
 				<tr>
@@ -89,7 +65,7 @@ width: 30%;
 					<label>Class : </label>
 					</td>
 					<td>
-						<input type="text" name="class" id="class" value="<%=student.getStudentClass()%>">
+						<input type="number" name="class" id="class" value="<%=student.getStudentClass()%>" pattern="[0-9]+" min="1" max="12" placeholder="Enter your class" required>
 					</td>
 				</tr>
 				<tr>
@@ -97,7 +73,7 @@ width: 30%;
 					<label>Age : </label>
 					</td>
 					<td>
-						<input type="text" name="age" id="age" value="<%=student.getAge()%>">
+						<input type="number" name="age" id="age" value="<%=student.getAge()%>" pattern="[0-9]+" min="1" max="99" placeholder="Enter your age" required>
 					</td>
 				</tr>
 				<tr>

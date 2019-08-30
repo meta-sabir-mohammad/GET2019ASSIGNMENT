@@ -5,27 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<style>
-	body{
-	font-size : 20px;
-	}
-	input[type=text],[type=email],[type=number] {
-  	width: 100%;
-  	padding: 12px 20px;
-  	margin: 4px 0;
-  	box-sizing: border-box;
-	}
-	
-input[type=submit]{
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}	
-</style>
+
+<link rel = "stylesheet" type = "text/css" href = "../css/main.css" />
 </head>
 <body>
 	<div align="center">
@@ -46,7 +27,7 @@ input[type=submit]{
 				<tr>
 					<td><label>Father's Name : </label></td>
 					<td><input type="text" name="fatherName" id="fathertName"
-						placeholder="Enter your father's name" pattern="[a-zA-Z]+" minlength="2" maxlength="45" required></td>
+						placeholder="Enter your father's name" pattern="[a-z A-Z]+" minlength="2" maxlength="45" required></td>
 				</tr>
 				<tr>
 					<td><label>Email : </label></td>

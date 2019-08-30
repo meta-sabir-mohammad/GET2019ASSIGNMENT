@@ -5,54 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<style>
-	body{
-	font-size : 20px;
-	}
-	input[type=text] {
-  	width: 100%;
-  	padding: 12px 20px;
-  	margin: 4px 0;
-  	box-sizing: border-box;
-	}
-	input[type=text]:focus {
-  border: 1px solid #4CAF50;
-}
-input[type=submit]{
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}	
-#studentTable {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
- #studentTable td, #studentTable th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
- #studentTable tr:nth-child(even){background-color: #f2f2f2;}
-
- #studentTable tr:hover {background-color: #ddd;}
-
- #studentTable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-#searchFormTable{
-width:30%;
-}
-</style>
+<link rel = "stylesheet" type = "text/css" href = "../css/main.css" />
 </head>
 <body>
 

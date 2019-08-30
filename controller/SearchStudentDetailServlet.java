@@ -16,21 +16,25 @@ import com.sms.model.StudentManagementSystemModel;
 
 /**
  * Servlet implementation class SearchStudentDetailServlet
+ * This servlet search students details
+ * @author Sabir
  */
 @WebServlet("/SearchStudentDetailServlet")
 public class SearchStudentDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor 
      */
     public SearchStudentDetailServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+    /**
+	 * This method search students detail and return using service post type request 
+	 * @param request object of HttpServletRequest 
+	 * @param response object of HttpServletResponse
+	 * @throws ServletExcetion,IOException
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -43,7 +47,6 @@ public class SearchStudentDetailServlet extends HttpServlet {
 		}else{
 			filterByClass = true;
 		}
-		
 		StudentManagementSystemModel studentManagementSystemModel = StudentManagementSystemModel.getInstance();
 		HttpSession session = request.getSession();
 		try {

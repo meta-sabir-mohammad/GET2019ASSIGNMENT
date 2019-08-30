@@ -1,9 +1,7 @@
 package com.sms.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,13 +14,15 @@ import com.sms.model.StudentManagementSystemModel;
 
 /**
  * Servlet implementation class GetAllStudentDetailServlet
+ * This servlet get all student details and return
+ * @author Sabir
  */
 @WebServlet("/GetAllStudentDetailServlet")
 public class GetAllStudentDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * Default constructor 
 	 */
 	public GetAllStudentDetailServlet() {
 		super();
@@ -30,7 +30,10 @@ public class GetAllStudentDetailServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * This method get all student detail and return as a session using service get type request 
+	 * @param request object of HttpServletRequest 
+	 * @param response object of HttpServletResponse
+	 * @throws ServletExcetion,IOException
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

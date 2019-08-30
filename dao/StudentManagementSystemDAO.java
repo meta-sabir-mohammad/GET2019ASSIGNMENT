@@ -11,14 +11,31 @@ import com.sms.connectionfactory.ConnectionFactory;
 import com.sms.connectionfactory.DatabaseQuerys;
 import com.sms.dto.Student;
 
+/**
+ * This is DAO class of student management system
+ * @author Sabir
+ *
+ */
 public class StudentManagementSystemDAO {
 
+	//Object of StudentManagementSystemDAO class
 	private static StudentManagementSystemDAO studentManagementSystemDAO = new StudentManagementSystemDAO(); 
 
+	/**
+	 * This method return singleton object of StudentManagementSystemDAO class
+	 * @return object of StudentManagementSystemDAO
+	 */
 	public static StudentManagementSystemDAO getInstance(){
 		return studentManagementSystemDAO;
 	}
 
+	/**
+	 * This method add student details to database
+	 * @param student object of Student class containing details of student
+	 * @return true if added successful else false
+	 * @throws SQLException if exception occur because of database
+	 * @throws Exception other general exception
+	 */
 	public boolean addStudent(Student student) throws SQLException,Exception{
 
 		Connection conn  = null;
@@ -42,11 +59,9 @@ public class StudentManagementSystemDAO {
 				return false;
 			}
 		}catch (SQLException e) {
-			System.out.println(e);
 			throw e;
 		}
 		catch (Exception e) {
-			System.out.println(e);
 			throw e;
 		}
 		finally{
@@ -59,6 +74,12 @@ public class StudentManagementSystemDAO {
 		}
 	}
 
+	/**
+	 * This method get details of all students from database
+	 * @return List of student
+	 * @throws SQLException if exception occur because of database
+	 * @throws Exception other general exception
+	 */
 	public List<Student> getAllStudentDetails() throws SQLException,Exception{
 
 		Connection conn  = null;
@@ -83,11 +104,9 @@ public class StudentManagementSystemDAO {
 			}
 			return studentList;
 		}catch (SQLException e) {
-			System.out.println(e);
 			throw e;
 		}
 		catch (Exception e) {
-			System.out.println(e);
 			throw e;
 		}
 		finally{
@@ -101,6 +120,14 @@ public class StudentManagementSystemDAO {
 
 	}
 
+	/**
+	 * This method get the details of students by name from database
+	 * @param student object of Student class containing first and last name
+	 * @param filterByClass boolean contain true if filter is require else false
+	 * @return List of Student
+	 * @throws SQLException if exception occur because of database
+	 * @throws Exception other general exception
+	 */
 	public List<Student> getStudentDetailsByName(Student student,boolean filterByClass) throws SQLException,Exception{
 		
 		Connection conn  = null;
@@ -127,11 +154,9 @@ public class StudentManagementSystemDAO {
 			}
 			return studentSearchList;
 		}catch (SQLException e) {
-			System.out.println(e);
 			throw e;
 		}
 		catch (Exception e) {
-			System.out.println(e);
 			throw e;
 		}
 		finally{
@@ -144,7 +169,15 @@ public class StudentManagementSystemDAO {
 		}
 	}
 
+	/**
+	 * This method update student detail in database
+	 * @param student object of Student class containing details of student
+	 * @return true if update successful else false
+	 * @throws SQLException if exception occur because of database
+	 * @throws Exception other general exception
+	 */
 	public boolean updateStudentDetail(Student student) throws SQLException,Exception{
+		
 		Connection conn  = null;
 		CallableStatement callStmt = null;
 
@@ -165,11 +198,9 @@ public class StudentManagementSystemDAO {
 				return false;
 			}
 		}catch (SQLException e) {
-			System.out.println(e);
 			throw e;
 		}
 		catch (Exception e) {
-			System.out.println(e);
 			throw e;
 		}
 		finally{
@@ -182,6 +213,13 @@ public class StudentManagementSystemDAO {
 		}
 	}
 
+	/**
+	 * This method get student detail using id from database
+	 * @param id represent student id
+	 * @return object of Student class contain detail of student
+	 * @throws SQLException if exception occur because of database
+	 * @throws Exception other general exception
+	 */
 	public Student getStudentDetailById(int id) throws SQLException,Exception{
 
 		Connection conn  = null;

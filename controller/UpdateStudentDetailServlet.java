@@ -15,21 +15,24 @@ import com.sms.model.StudentManagementSystemModel;
 
 /**
  * Servlet implementation class UpdateStudentDetailServlet
+ * This servlet udpate student detail
  */
 @WebServlet("/UpdateStudentDetailServlet")
 public class UpdateStudentDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor
      */
     public UpdateStudentDetailServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+    /**
+	 * This method update student detail using service post type request 
+	 * @param request object of HttpServletRequest 
+	 * @param response object of HttpServletResponse
+	 * @throws ServletExcetion,IOException
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
@@ -57,7 +60,7 @@ public class UpdateStudentDetailServlet extends HttpServlet {
 			session.setAttribute("operation", "update");
 			session.setAttribute("message", false);
 		}
-		
+
 		response.sendRedirect("jsp/index.jsp");
 	}
 

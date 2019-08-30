@@ -1,0 +1,119 @@
+body {
+	font-size: 20px;
+}
+ol {
+	list-style-type: none;
+}
+li {
+	display: inline;
+}
+a {
+	text-decoration: none;
+	padding: 1%;
+	margin: 5% 2% 0% 2%;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+}
+ #refresh{
+	text-decoration : none;
+	padding : 1%;
+	background-color : #4CAF50;
+	color: white;
+	border: none;
+	}
+#menu {
+	width: 600px;
+	height: 100px;
+	margin: auto;
+}
+h4{
+color: red;
+}
+input[type=text],[type=email],[type=number] {
+  	width: 100%;
+  	padding: 12px 20px;
+  	margin: 4px 0;
+  	box-sizing: border-box;
+	}
+	input[type=text]:focus {
+  border: 1px solid #4CAF50;
+}
+input[type=submit]{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}	
+ #showAllStudentDetail input[type=submit]{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+#studentTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ #studentTable td, #studentTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+ #studentTable tr:nth-child(even){background-color: #f2f2f2;}
+
+ #studentTable tr:hover {background-color: #ddd;}
+
+ #studentTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+#studentTable td{
+	text-align: center;
+}
+#searchFormTable{
+width:30%;
+}
+
+
+#showAllStudentDetail {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top:1%;
+}
+
+ #showAllStudentDetail td, #showAllStudentDetail th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+ #showAllStudentDetail tr:nth-child(even){background-color: #f2f2f2;}
+
+ #showAllStudentDetail tr:hover {background-color: #ddd;}
+
+  #showAllStudentDetail th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+#showAllStudentDetail td{
+ text-align: center;
+}
+#upateFormTable table{
+width: 30%;
+}
+
