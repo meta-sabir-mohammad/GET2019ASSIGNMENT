@@ -14,28 +14,25 @@ import dto.User;
 import facade.ShoppingCartFacade;
 
 /**
- * This servlet show cart of user
+ * Servlet implementation class RedirectToUpdateCartPage
  */
-@WebServlet("/ShowCartServlet")
-public class ShowCartServlet extends HttpServlet {
+@WebServlet("/RedirectToUpdateCartPage")
+public class RedirectToUpdateCartPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ShowCartServlet() {
+	public RedirectToUpdateCartPage() {
 		super();
-
 	}
 
 	/**
-	 * This method show cart of user
-	 * @param request object of HttpServletRequest
-	 * @param request object of HttpServletResponse 
+	 * This method redirec to update cart page
+	 * 
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		ShoppingCartFacade shoppingCartFacade = ShoppingCartFacade.getInstance();
 		HttpSession session = request.getSession();
 		User user = new User();
@@ -44,15 +41,11 @@ public class ShowCartServlet extends HttpServlet {
 
 		if (cart != null) {
 			session.setAttribute("cart", cart);
-			response.sendRedirect("jsp/private/showcart.jsp");
+			response.sendRedirect("jsp/private/updatecart.jsp");
 		} else {
 			session.setAttribute("message", "Show cart operation failed!!!");
 			response.sendRedirect("jsp/private/welcome.jsp");
 		}
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-	}
+
 }

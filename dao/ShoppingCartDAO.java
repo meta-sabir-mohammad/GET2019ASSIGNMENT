@@ -13,10 +13,20 @@ import dto.User;
 import factory.ConnectionFactory;
 import factory.DatabaseQuery;
 
+/**
+ * This is dao class of shopping cart
+ * @author Sabir
+ *
+ */
 public class ShoppingCartDAO {
 
+	//Static object of ShoppingCartDAO
 	private static ShoppingCartDAO shoppingCartDAO = null;
 
+	/**
+	 * This method return singleton object of ShoppingCartDAO
+	 * @return object of ShoppingCartDAO
+	 */
 	public static ShoppingCartDAO getInstance() {
 
 		if (shoppingCartDAO == null) {
@@ -25,6 +35,12 @@ public class ShoppingCartDAO {
 		return shoppingCartDAO;
 	}
 
+	/**
+	 * This method get all product details from database and return it
+	 * @return List of products containing detail about products
+	 * @throws SQLException while querying database
+	 * @throws Exception other general exception
+	 */
 	public List<Product> getAllProducts() throws SQLException, Exception {
 
 		Connection conn = null;
@@ -56,6 +72,14 @@ public class ShoppingCartDAO {
 		}
 	}
 
+	/**
+	 * This method add product to cart of user
+	 * @param product object of Product containing details about product
+	 * @param user object of User containing user name of user
+	 * @return true if product is added else false
+	 * @throws SQLException exception related to database
+	 * @throws Exception other exceptions
+	 */
 	public boolean addProductToCart(Product product, User user) throws SQLException, Exception {
 
 		Connection conn = null;
@@ -86,6 +110,13 @@ public class ShoppingCartDAO {
 		}
 	}
 
+	/**
+	 * This method return all the products from users cart
+	 * @param user object of User containing details about user
+	 * @return Object of Cart containing details about cart
+	 * @throws SQLException exception related to database
+	 * @throws Exception other general exception
+	 */
 	public Cart getCart(User user) throws SQLException, Exception {
 
 		Connection conn = null;
@@ -122,6 +153,14 @@ public class ShoppingCartDAO {
 
 	}
 
+	/**
+	 * This method update product quantity in cart
+	 * @param user object of User containing user name
+	 * @param product object of Product containing details about product
+	 * @return true if product quantity updated else false
+	 * @throws SQLException exception related to database
+	 * @throws Exception other general exception
+	 */
 	public boolean updateProductQuantity(User user, Product product) throws SQLException, Exception {
 
 		Connection conn = null;
@@ -152,6 +191,14 @@ public class ShoppingCartDAO {
 		}
 	}
 
+	/**
+	 * This method remove product from cart
+	 * @param user object of User containing user name
+	 * @param product object of Product containing detail about product
+	 * @return true if product is removed else false
+	 * @throws SQLException exception related to database
+	 * @throws Exception other general exception
+	 */
 	public boolean removeProductFromCart(User user, Product product) throws SQLException, Exception {
 
 		Connection conn = null;

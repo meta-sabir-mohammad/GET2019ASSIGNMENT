@@ -15,7 +15,7 @@
 		<a href="../../ShowCartServlet">View Cart</a>
 		</li>
 		<li>
-		<a href="../../UpdateCartServlet">Update Cart</a>
+		<a href="../../RedirectToUpdateCartPage">Update Cart</a>
 		</li>
 	</ul>
 </body>

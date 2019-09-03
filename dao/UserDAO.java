@@ -9,10 +9,20 @@ import dto.User;
 import factory.ConnectionFactory;
 import factory.DatabaseQuery;
 
+/**
+ * This class represent user dao
+ * @author Sabir
+ *
+ */
 public class UserDAO {
 
+	//Singleton object of UserDAO class
 	private static UserDAO userDAO = null;
 	
+	/**
+	 * This method return object of UserDAO
+	 * @return object of UserDAO
+	 */
 	public static UserDAO getInstance(){
 		if(userDAO == null){
 			userDAO =  new UserDAO();
@@ -20,10 +30,13 @@ public class UserDAO {
 		return userDAO;
 	}
 	
-	public boolean addUser(User user){
-		
-		return true;
-	}
+	/**
+	 * This method authenticate user details 
+	 * @param user object of User class
+	 * @return true if user details are correct else false
+	 * @throws SQLException exception related to database
+	 * @throws Exception other general exception
+	 */
 	public boolean login(User user) throws SQLException,Exception{
 		
 		Connection conn = null;

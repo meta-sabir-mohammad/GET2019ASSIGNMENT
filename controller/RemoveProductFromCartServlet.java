@@ -15,7 +15,8 @@ import dto.User;
 import facade.ShoppingCartFacade;
 
 /**
- * Servlet implementation class RemoveProductFromCartServlet
+ * This servlet remove product form cart
+ * @author Sabir
  */
 @WebServlet("/RemoveProductFromCartServlet")
 public class RemoveProductFromCartServlet extends HttpServlet {
@@ -26,14 +27,45 @@ public class RemoveProductFromCartServlet extends HttpServlet {
 	 */
 	public RemoveProductFromCartServlet() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * This method remove product form cart
+	 * @param request object of HttpServletRequest
+	 * @param request object of HttpServletResponse
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Product product = new Product();
+		product.setProductCode(Integer.parseInt(request.getParameter("id")));
+		product.setQuantity(0);
+
+		HttpSession session = request.getSession();
+		User user = new User();
+		user.setUserName((String) session.getAttribute("userName"));
+
+		ShoppingCartFacade shoppingCartFacade = ShoppingCartFacade.getInstance();
+		boolean result = shoppingCartFacade.removeProductFromCart(user, product);
+
+		if (result) {
+			session.setAttribute("message", "Product successfully removed");
+			RequestDispatcher rd = request.getRequestDispatcher("ShowCartServlet");
+			rd.forward(request, response);
+		} else {
+			session.setAttribute("message", "Product remove failed");
+			RequestDispatcher rd = request.getRequestDispatcher("ShowCartServlet");
+			rd.forward(request, response);
+		}
+	}
+	
+	/**
+	 * This method remove product form cart
+	 * @param request object of HttpServletRequest
+	 * @param request object of HttpServletResponse
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		Product product = new Product();

@@ -12,22 +12,24 @@ import javax.servlet.http.HttpSession;
 import dto.Product;
 
 /**
- * Servlet implementation class RedirectToAddProductPage
+ * This servlet is used to redirect to add product page
+ * @author Sabir
  */
 @WebServlet("/RedirectToAddProductPage")
 public class RedirectToAddProductPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RedirectToAddProductPage() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RedirectToAddProductPage() {
+		super();
+	}
+
+	/**
+	 * This method is used to redirect to add product page
+	 * @param request object of HttpServletRequest
+	 * @param request object of HttpServletResponse
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Product product = new Product();

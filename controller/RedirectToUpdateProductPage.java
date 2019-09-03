@@ -11,7 +11,8 @@ import javax.servlet.http.HttpSession;
 import dto.Product;
 
 /**
- * Servlet implementation class RedirectToUpdateProductPage
+ * This servlet is use to redirect o update product page
+ * @author Sabir
  */
 @WebServlet("/RedirectToUpdateProductPage")
 public class RedirectToUpdateProductPage extends HttpServlet {
@@ -25,8 +26,10 @@ public class RedirectToUpdateProductPage extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+    /**
+	 * This method is use to redirect o update product page
+	 * @param request object of HttpServletRequest
+	 * @param request object of HttpServletResponse
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

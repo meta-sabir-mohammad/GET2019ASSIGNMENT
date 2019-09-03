@@ -14,7 +14,8 @@ import dto.User;
 import facade.UserFacade;
 
 /**
- * Servlet implementation class LoginServlet
+ * This servlet is used for login
+ * @author Sabir
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -25,11 +26,12 @@ public class LoginServlet extends HttpServlet {
      */
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * This method used to authenticate user and redirect to welcome page
+	 * @param request object of HttpServletRequest
+	 * @param request object of HttpServletResponse
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

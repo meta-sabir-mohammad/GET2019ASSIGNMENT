@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 <%@ page import="dto.Product" %>
@@ -35,7 +36,7 @@
 			<label>Product Quantity : </label>
 			</td>
 			<td>
-			<input type="number" name="quantity" value="1" min="1" max="5" placeholder="Enter quantity">
+			<input type="number" name="quantity" value="<%=product.getQuantity()%>" min="1" max="10" placeholder="Enter quantity">
 			</td>
 		</tr>
 			<td align="center">

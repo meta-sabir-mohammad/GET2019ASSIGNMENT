@@ -14,7 +14,8 @@ import dto.User;
 import facade.ShoppingCartFacade;
 
 /**
- * Servlet implementation class AddProductServlet
+ * This servlet add product
+ * @author Sabir
  */
 @WebServlet("/AddProductServlet")
 public class AddProductServlet extends HttpServlet {
@@ -28,8 +29,9 @@ public class AddProductServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * This method add product to cart
+	 * @param request object of HttpServletRequest
+	 * @param response object of HttpServletResponse
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

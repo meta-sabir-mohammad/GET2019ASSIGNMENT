@@ -12,7 +12,8 @@ import javax.servlet.http.HttpSession;
 import facade.ShoppingCartFacade;
 
 /**
- * Servlet implementation class ShowAllProductsServlet
+ * This servlet show all product
+ * @author Sabir
  */
 @WebServlet("/ShowAllProductsServlet")
 public class ShowAllProductsServlet extends HttpServlet {
@@ -23,11 +24,13 @@ public class ShowAllProductsServlet extends HttpServlet {
      */
     public ShowAllProductsServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * This method show all product available 
+	 * @param request object of HttpServletRequest
+	 * @param request object of HttpServletResponse 
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -36,12 +39,4 @@ public class ShowAllProductsServlet extends HttpServlet {
 		session.setAttribute("productsList", shoppingCartFacade.getAllProducts());
 		response.sendRedirect("jsp/private/showallproduct.jsp");
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
 }
