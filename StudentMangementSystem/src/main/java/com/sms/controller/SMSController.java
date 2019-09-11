@@ -68,7 +68,7 @@ public class SMSController {
 	 * @param bindingResult object of BindingResult class
 	 * @return String name of page
 	 */
-	@RequestMapping("/addStudent")
+	@PostMapping("/addStudent")
 	public String addStudent(@Valid @ModelAttribute("student") Student student,BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {
