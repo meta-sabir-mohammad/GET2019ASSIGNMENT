@@ -57,11 +57,11 @@ public class EmployeeService {
 		}
 	}
 
-	public boolean updateEmployeeDetail(EmployeeDTO employeeDTO,String email) throws Exception{
+	public boolean updateEmployeeDetail(EmployeePOJO employeePOJO,String email) throws Exception{
 
 		EmployeeDAO employeeDAO = EmployeeDAO.getInstance();
 		try{
-			return employeeDAO.updateEmployeeDetail(employeeDTO,email);
+			return employeeDAO.updateEmployeeDetail(employeePOJO,email);
 		}catch(Exception e){
 			throw e;
 		}

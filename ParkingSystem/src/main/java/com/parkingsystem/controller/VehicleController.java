@@ -20,6 +20,9 @@ public class VehicleController {
 	@GetMapping("/vehicleregistrationpage")
 	public String showVehiclePage(Model model,HttpSession session) {
 		
+		if(session.getAttribute("email") == null) {
+			return "redirect:loginpage";
+		}
 		EmployeeService employeeService = new EmployeeService();
 		try {
 			String email = (String) session.getAttribute("email");
@@ -35,8 +38,11 @@ public class VehicleController {
 	}
 	
 	@PostMapping("/addvehicle")
-	public String addVehicle(@Valid @ModelAttribute("vehicle") VehiclePOJO vehiclePOJO, BindingResult bindingResult) {
+	public String addVehicle(@Valid @ModelAttribute("vehicle") VehiclePOJO vehiclePOJO, BindingResult bindingResult,HttpSession session) {
 		
+		if(session.getAttribute("email") == null) {
+			return "redirect:loginpage";
+		}
 		if(bindingResult.hasErrors()) {
 			return "private/vehicleregistration";
 		}else {

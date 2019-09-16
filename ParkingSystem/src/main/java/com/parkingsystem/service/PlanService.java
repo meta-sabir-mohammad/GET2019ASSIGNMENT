@@ -1,7 +1,7 @@
 package com.parkingsystem.service;
 
 import com.parkingsystem.dao.PlanDAO;
-import com.parkingsystem.model.dto.PlanDTO;
+import com.parkingsystem.model.pojo.PlanPOJO;
 
 public class PlanService {
 
@@ -15,11 +15,11 @@ public class PlanService {
 		return planService;
 	}
 	
-	public boolean addPlan(PlanDTO planDTO ,int empId) throws Exception{
+	public boolean addPlan(PlanPOJO planPOJO ,int empId) throws Exception{
 		
 		PlanDAO planDAO = PlanDAO.getInstance();
 		try{
-			return planDAO.addPlan(planDTO,empId);
+			return planDAO.addPlan(planPOJO,empId);
 		}catch(Exception e){
 			throw e;
 		}

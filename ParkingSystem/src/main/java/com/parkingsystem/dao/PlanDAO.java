@@ -4,9 +4,8 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.parkingsystem.factory.DatabaseQuery;
-import com.parkingsystem.model.dto.PlanDTO;
+import com.parkingsystem.model.pojo.PlanPOJO;
 import com.parkingsystem.factory.ConnectionFactory;
 
 
@@ -22,7 +21,7 @@ public class PlanDAO {
 		return planDAO;
 	}
 	
-	public boolean addPlan(PlanDTO planDTO, int empId) throws SQLException,Exception{
+	public boolean addPlan(PlanPOJO planPOJO, int empId) throws SQLException,Exception{
 		
 		Connection conn = null;
 		CallableStatement callStmt = null;
@@ -30,9 +29,9 @@ public class PlanDAO {
 			conn = ConnectionFactory.getConnection();
 			conn.setAutoCommit(false);
 			callStmt = conn.prepareCall(DatabaseQuery.ADD_PLAN);
-			callStmt.setString(1, planDTO.getCurrency());
-			callStmt.setString(2, planDTO.getType());
-			callStmt.setDouble(3, planDTO.getPrice());
+			callStmt.setString(1, planPOJO.getCurrency());
+			callStmt.setString(2, planPOJO.getType());
+			callStmt.setDouble(3, Double.parseDouble(planPOJO.getPrice()));
 			callStmt.setInt(4, empId);
 			int result = callStmt.executeUpdate();
 			if(result > 0){

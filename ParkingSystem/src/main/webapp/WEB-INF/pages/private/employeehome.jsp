@@ -16,7 +16,7 @@
 					<a href="logout">Logout</a>
 				</li>
 				<li>
-					<a href="showfriends">Show Friends</a>
+					<a href="friendslistpage">Show Friends</a>
 				</li>
 			</ul>
 		</div>
@@ -84,7 +84,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<a href="editemployeedetail">Edit</a>
+				<a href="updateemployeedetailpage">Edit</a>
 			</td>
 		</tr>
 

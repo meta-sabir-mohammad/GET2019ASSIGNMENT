@@ -7,35 +7,35 @@ import javax.validation.constraints.Size;
 
 public class EmployeePOJO {
 	
-	@NotBlank(message="${employeeName.NotBlank}")
-	@Pattern(regexp="[a-zA-Z]+",message="${employeeName.OnlyAlphabates}")
-	@Size(min=2,max=50,message="${employeeName.Size}")
+	@NotBlank(message="{employeeName.NotBlank}")
+	@Pattern(regexp="[a-zA-Z ]+",message="{employeeName.OnlyAlphabates}")
+	@Size(min=2,max=50,message="{employeeName.Size}")
 	private String name;
 	
-	@NotBlank
-	@Pattern(regexp="[MFamle]+",message="${gender.Invalid}")
+	@NotBlank(message="{gender.NotBlank}")
+	@Pattern(regexp="[MFamle]+",message="{gender.Invalid}")
 	private String gender;
 	
-	@NotBlank(message="email.NotBlank")
-	@Email(message="email.Invalid")
+	@NotBlank(message="{email.NotBlank}")
+	@Email(message="{email.Invalid}")
 	private String email;
 	
-	@NotBlank
-	@Pattern(regexp="[0-9]",message="${password.OnlyNumber}")
-	@Size(min=8,max=16,message="${password.Size}")
+	@NotBlank(message="{password.NotBlank}")
+	@Pattern(regexp="[0-9]+",message="{password.OnlyNumber}")
+	@Size(min=8,max=16,message="{password.Size}")
 	private String password;
 	
-	@NotBlank
-	@Pattern(regexp="[0-9]",message="${confirmPassword.OnlyNumber}")
-	@Size(min=8,max=16,message="${confirmPassword.Size}")
+	@NotBlank(message="{confirmPassword.NotBlank}")
+	@Pattern(regexp="[0-9]+",message="{confirmPassword.OnlyNumber}")
+	@Size(min=8,max=16,message="{confirmPassword.Size}")
 	private String confirmPassword;
 	
-	@NotBlank
-	@Pattern(regexp="[0-9]+",message="${phoneNumber.OnlyNumber}")
-	@Size(min=8,max=10,message="${phoneNumber.Size}")
+	@NotBlank(message="{phoneNumber.NotBlank}")
+	@Pattern(regexp="[0-9]+",message="{phoneNumber.OnlyNumber}")
+	@Size(min=8,max=10,message="{phoneNumber.Size}")
 	private String phoneNumber;
 	
-	@NotBlank
+	@NotBlank(message="${company.NotBlank}")
 	@Pattern(regexp="[a-zA-Z0-9]+",message="${company.OnlyAlphanumeric}")
 	private String company;
 	

@@ -124,7 +124,7 @@ public class EmployeeDAO {
 				employeeDTO.setName(result.getString(2));
 				employeeDTO.setGender(result.getString(3));
 				employeeDTO.setEmail(result.getString(4));
-				employeeDTO.setPassword(result.getString(5));
+				//employeeDTO.setPassword(result.getString(5));
 				employeeDTO.setPhoneNumber(result.getString(6));
 				employeeDTO.setCompany(result.getString(7));
 			}
@@ -148,16 +148,16 @@ public class EmployeeDAO {
 		}
 	}
 
-	public boolean updateEmployeeDetail(EmployeeDTO employeeDTO,String email) throws SQLException,Exception{
+	public boolean updateEmployeeDetail(EmployeePOJO employeePOJO,String email) throws SQLException,Exception{
 
 		Connection conn = null;
 		CallableStatement callStmt = null;
 		try{
 			conn = ConnectionFactory.getConnection();
 			callStmt = conn.prepareCall(DatabaseQuery.UPDATE_EMPLOYEE_DETAIL);
-			callStmt.setString(1, employeeDTO.getEmail());
-			callStmt.setString(2, employeeDTO.getPassword());
-			callStmt.setString(3, employeeDTO.getPhoneNumber());
+			callStmt.setString(1, employeePOJO.getEmail());
+			callStmt.setString(2, employeePOJO.getPassword());
+			callStmt.setString(3, employeePOJO.getPhoneNumber());
 			callStmt.setString(4, email);
 			int result = callStmt.executeUpdate();
 			if(result > 0){

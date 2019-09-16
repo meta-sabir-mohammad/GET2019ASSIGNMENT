@@ -12,10 +12,10 @@
 		<div>
 			<ul>
 				<li>
-					<a href="../../LogoutServlet">Logout</a>
+					<a href="logout">Logout</a>
 				</li>
 				<li>
-					<a href="../../ShowEmployeeDetailServlet">Home</a>
+					<a href="homepage">Home</a>
 				</li>
 			</ul>
 		</div>
@@ -30,7 +30,7 @@
 				<label>Employee Id :</label>
 			</td>
 			<td>
-				<label></label>
+				<label>${employeeDTO.id}</label>
 			</td>
 		</tr>
 		<tr>
@@ -38,7 +38,7 @@
 				<label>Name : </label>
 			</td>
 			<td>
-				<label></label>
+				<label>${employeeDTO.name}</label>
 			</td>
 		</tr>
 		<tr>
@@ -46,7 +46,7 @@
 				<label>Gender : </label>
 			</td>
 			<td>
-				<label></label>
+				<label>${employeeDTO.gender}</label>
 			</td>
 		</tr>
 		<tr>
@@ -54,7 +54,7 @@
 				<label>Email : </label>
 			</td>
 			<td>
-				<label></label>
+				<label>${employeeDTO.email}</label>
 			</td>
 		</tr>
 		<tr>
@@ -62,7 +62,7 @@
 				<label>Contact Number : </label>
 			</td>
 			<td>
-				<label></label>
+				<label>${employeeDTO.phoneNumber}</label>
 			</td>
 		</tr>
 		<tr>
@@ -70,7 +70,7 @@
 				<label>Company : </label>
 			</td>
 			<td>
-				<label></label>
+				<label>${employeeDTO.company}</label>
 			</td>
 		</tr>
 		

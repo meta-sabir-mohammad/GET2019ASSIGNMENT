@@ -22,39 +22,39 @@
 			<div class="form-group row col-md-4">
 				<form:label path="name">Full Name</form:label>
 				<form:input path="name" cssClass="form-control"
-					id="1" placeholder="Enter Full Name" />
+					id="name" placeholder="Enter Full Name" />
 				<form:errors path="name" cssClass="text-danger" />
 			</div>
 			<div class="form-group row col-md-4">
 				<form:label path="gender">Gender &emsp;&emsp;</form:label>
 				<label><form:radiobutton path="gender" value="Male"
-						cssClass="" id="2" />&thinsp;Male&emsp;</label> <label><form:radiobutton
+						cssClass="" id="gender" />&thinsp;Male&emsp;</label> <label><form:radiobutton
 						path="gender" value="Female" cssClass="" id="nameInputEmail1" />&thinsp;Female&emsp;</label>
 				<form:errors path="gender" cssClass="text-danger" />
 			</div>
 			<div class="form-group col-md-4 row">
 				<form:label path="email">Email address</form:label>
 				<form:input type="email" path="email" cssClass="form-control"
-					id="3" placeholder="Enter email" />
+					id="email" placeholder="Enter email" />
 				<form:errors path="email" cssClass="text-danger" />
 			</div>
 			<div class="form-group row col-md-4">
 				<form:label path="password">Password</form:label>
 				<form:input type="password" path="password" cssClass="form-control"
-					id="4" placeholder="Enter Password" />
+					id="password" placeholder="Enter Password" />
 				<form:errors path="password" cssClass="text-danger" />
 			</div>
 			<div class="form-group row col-md-4">
 				<form:label path="confirmPassword">Confirm Password</form:label>
 				<form:input type="password" path="confirmPassword"
-					cssClass="form-control" id="5"
+					cssClass="form-control" id="confirmPassword"
 					placeholder="Confirm Password" />
 				<form:errors path="confirmPassword" cssClass="text-danger" />
 			</div>
 			<div class="form-group row col-md-4 row">
 				<form:label path="phoneNumber">Contact</form:label>
 				<form:input path="phoneNumber" cssClass="form-control"
-					id="6" placeholder="Enter phoneNumber" />
+					id="phoneNumber" placeholder="Enter phoneNumber" />
 				<form:errors path="phoneNumber" cssClass="text-danger" />
 			</div>
 			<div class="form-group row col-md-4 row">

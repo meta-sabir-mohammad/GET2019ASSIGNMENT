@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.parkingsystem.model.pojo.LoginPOJO;
+import com.parkingsystem.service.EmployeeService;
 import com.parkingsystem.service.LoginService;
 
 @Controller
@@ -40,7 +41,16 @@ public class LoginController {
 				boolean accessGranted = loginService.login(loginPOJO);
 				if(accessGranted) {
 					session.setAttribute("email", loginPOJO.getEmail());
-					return "redirect:homepage";
+					EmployeeService employeeService = new EmployeeService();
+					if(employeeService.isVehicleRegistrationComplete(loginPOJO.getEmail())) {
+						if(employeeService.isPlanRegistrationComplete(loginPOJO.getEmail())){
+							return "redirect:homepage";
+						}else {
+							return "redirect:planpage";
+						}
+					}else {
+						return "redirect:vehicleregistrationpage";
+					}
 				}else {
 					return "login";
 				}

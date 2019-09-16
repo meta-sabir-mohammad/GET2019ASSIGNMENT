@@ -1,20 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Friend's List</title>
 </head>
 <body>
 <nav>
 		<div>
 			<ul>
 				<li>
-					<a href="../../LogoutServlet">Logout</a>
+					<a href="logout">Logout</a>
 				</li>
 				<li>
-					<a href="../../ShowEmployeeDetailServlet">Home</a>
+					<a href="homepage">Home</a>
 				</li>
 			</ul>
 		</div>
@@ -38,24 +40,26 @@
 				</th>
 			</tr>
 
-				<tr>
+			<c:forEach items="${friendList}" var="employeeDTO">
+				<tr >
+						<tr>
 					<td>
-						<label></label>
+						<label>${employeeDTO.id}</label>
 					</td>
 					<td>
-						<label></label>
+						<label>${employeeDTO.name}</label>
 					</td>
 					<td>
-						<label></label>
+						<label>${employeeDTO.email}</label>
 					</td>
 					<td>
-						<form action="../../ShowFriendDetailServlet" method="POST">
-							<input type="hidden" name="email" value="">
-							<input type="submit" value="Open Profile">
-						</form>
+					<form:form action="showfriendprofile" modelAttribute="employeePOJO" method="POST">
+						<form:input path="email" value="${employeeDTO.email}" type="hidden"/>
+						<button type="submit">Open Profile</button>
+					</form:form>
 					</td>
 				</tr>
-
+			</c:forEach>
 		</table>
 	</div>
 </body>
