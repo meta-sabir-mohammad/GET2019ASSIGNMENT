@@ -3,6 +3,11 @@ package com.parkingsystem.service;
 import com.parkingsystem.dao.PlanDAO;
 import com.parkingsystem.model.pojo.PlanPOJO;
 
+/**
+ * This is service class for plan
+ * @author Sabir
+ *
+ */
 public class PlanService {
 
 	private static PlanService planService = null;

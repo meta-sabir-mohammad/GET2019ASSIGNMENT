@@ -23,9 +23,21 @@ import com.parkingsystem.model.dto.EmployeeDTO;
 import com.parkingsystem.model.dto.FriendDTO;
 import com.parkingsystem.model.pojo.EmployeePOJO;
 import com.parkingsystem.service.EmployeeService;
+
+/**
+ * This is employee controller
+ * @author Sabir
+ *
+ */
 @Controller
 public class EmployeeController {
 
+	/**
+	 * This method add employee
+	 * @param employeePOJO object of EmployeePOJO containing details of employee
+	 * @param bindingResult object of BindingResult
+	 * @return String containing uri of pages
+	 */
 	@PostMapping("/addEmployee")
 	public String addEmployee(@Valid @ModelAttribute("employeePOJO") EmployeePOJO employeePOJO,BindingResult bindingResult) {
 
@@ -48,12 +60,23 @@ public class EmployeeController {
 		}
 	}
 
+	/**
+	 * This method return the add employee page
+	 * @param model object of Model
+	 * @return employee registration page
+	 */
 	@GetMapping("/addemployeepage")
 	public String showAddEmployeePage(Model model) {
 		model.addAttribute(new EmployeePOJO());
 		return "employeeregistration";
 	}
 
+	/**
+	 * This method return the employee home page
+	 * @param model object of Model
+	 * @param session object of HttpSession
+	 * @return employee home page
+	 */
 	@GetMapping("/homepage")
 	public String showEmployeeHomePage(Model model,HttpSession session) {
 
@@ -78,6 +101,12 @@ public class EmployeeController {
 		}
 	}
 
+	/**
+	 * This method return employee detail update page
+	 * @param model object of Model
+	 * @param session object of HttpSession
+	 * @return employee detail update page
+	 */
 	@GetMapping("/updateemployeedetailpage")
 	public String showEmployeeDetailUpdatePage(Model model,HttpSession session) {
 

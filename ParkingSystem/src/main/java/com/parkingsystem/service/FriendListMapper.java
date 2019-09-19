@@ -9,8 +9,17 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.parkingsystem.model.dto.FriendDTO;
 
+/**
+ * This is FriendList Mapper class
+ */
 public class FriendListMapper implements RowMapper<List<FriendDTO>> {
 
+	/**
+	 * This method map the result set to list of FrinedDTO
+	 * @param rs object of ResultSet
+	 * @param rowNum int represent total row in result set
+	 * @return list of FriendDTO
+	 */
 	@Override
 	public List<FriendDTO> mapRow(ResultSet rs, int rowNum) throws SQLException {
 		

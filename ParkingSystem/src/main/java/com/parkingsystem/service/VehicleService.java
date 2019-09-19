@@ -1,9 +1,13 @@
 package com.parkingsystem.service;
 
 import com.parkingsystem.dao.VehicleDAO;
-import com.parkingsystem.model.dto.VehicleDTO;
 import com.parkingsystem.model.pojo.VehiclePOJO;
 
+/**
+ * This is service class for vehicle
+ * @author Sabir
+ *
+ */
 public class VehicleService {
 
 	private static VehicleService vehicleService = null;

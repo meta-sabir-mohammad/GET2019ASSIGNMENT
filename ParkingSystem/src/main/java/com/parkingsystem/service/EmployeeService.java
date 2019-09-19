@@ -7,6 +7,11 @@ import com.parkingsystem.model.dto.EmployeeDTO;
 import com.parkingsystem.model.dto.FriendDTO;
 import com.parkingsystem.model.pojo.EmployeePOJO;
 
+/**
+ * This service class of employee
+ * @author Sabir
+ *
+ */
 public class EmployeeService {
 
 	private static EmployeeService employeeService = null;

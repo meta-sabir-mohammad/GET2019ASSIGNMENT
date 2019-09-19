@@ -15,7 +15,7 @@ public class ConnectionFactory {
 	// This represent the user name
 	static final String USER_NAME = "root";
 	// This represent the password
-	static final String PASSWORD = "agwan2328";
+	static final String PASSWORD = "1234";
 	// This represent the url of database
 	static final String URL = "jdbc:mysql://localhost:3306/employee";
 

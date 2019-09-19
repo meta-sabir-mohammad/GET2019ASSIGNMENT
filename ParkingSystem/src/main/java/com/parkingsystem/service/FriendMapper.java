@@ -5,8 +5,19 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 import com.parkingsystem.model.dto.FriendDTO;
 
+/**
+ * This is FriendDTO class Mapper
+ * @author Sabir
+ *
+ */
 public class FriendMapper implements RowMapper<FriendDTO> {
 
+	/**
+	 * This method map the result set to FriendDTO object
+	 * @param rs object of ResultSet
+	 * @param rowNum int represent total row in result set
+	 * @return object of FriendDTO
+	 */
 	@Override
 	public FriendDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		

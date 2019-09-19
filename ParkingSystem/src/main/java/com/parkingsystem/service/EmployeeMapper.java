@@ -7,8 +7,19 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.parkingsystem.model.dto.EmployeeDTO;
 
+/**
+ * This is Employee Mapper class
+ * @author Sabir
+ *
+ */
 public class EmployeeMapper implements RowMapper<EmployeeDTO>{
-
+	
+	/**
+	 * This method map the result set to employeeDTO object
+	 * @param rs object of ResultSet containing data from database query
+	 * @param rowNum int containing total row in ResultSet
+	 * @return object of EmployeeDTO 
+	 */
 	@Override
 	public EmployeeDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		

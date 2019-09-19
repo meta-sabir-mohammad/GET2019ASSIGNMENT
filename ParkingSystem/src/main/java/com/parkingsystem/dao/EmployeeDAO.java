@@ -139,12 +139,9 @@ public class EmployeeDAO {
 	 */
 	public boolean updatePhotoUrl(String email,String url) throws SQLException,Exception{
 		
-		System.out.println(email);
-		System.out.println(url);
 		int result =0;
 		try {
 			result = jdbcTemplate.update(DatabaseQuery.UPDATE_PHOTO_URL,email,url);
-			System.out.println(result);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

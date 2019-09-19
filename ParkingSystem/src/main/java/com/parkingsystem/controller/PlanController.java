@@ -15,6 +15,11 @@ import com.parkingsystem.service.EmployeeService;
 import com.parkingsystem.service.PlanService;
 import com.parkingsystem.service.VehicleService;
 
+/**
+ * This is plan controller
+ * @author Sabir
+ *
+ */
 @Controller
 public class PlanController {
 

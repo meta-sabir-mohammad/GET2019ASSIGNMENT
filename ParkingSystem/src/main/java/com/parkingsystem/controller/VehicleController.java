@@ -14,33 +14,43 @@ import com.parkingsystem.model.pojo.VehiclePOJO;
 import com.parkingsystem.service.EmployeeService;
 import com.parkingsystem.service.VehicleService;
 
+/**
+ * This is vehicle controller
+ * @author Sabir
+ *
+ */
 @Controller
 public class VehicleController {
-	
+
 	@GetMapping("/vehicleregistrationpage")
 	public String showVehiclePage(Model model,HttpSession session) {
-		
+
 		if(session.getAttribute("email") == null) {
 			return "redirect:loginpage";
 		}
-		EmployeeService employeeService = new EmployeeService();
 		try {
+			EmployeeService employeeService = new EmployeeService();
 			String email = (String) session.getAttribute("email");
-			int id = employeeService.getEmployeeId(email);
-			VehiclePOJO vehiclePOJO = new VehiclePOJO();
-			vehiclePOJO.setEmpId(id);
-			model.addAttribute(id);
-			model.addAttribute("vehicle",vehiclePOJO);
-			return "private/vehicleregistration";
+			boolean isVehicleRegistered = employeeService.isVehicleRegistrationComplete(email);
+			if(isVehicleRegistered) {
+				return "redirect:homepage";
+			}else {
+				int id = employeeService.getEmployeeId(email);
+				VehiclePOJO vehiclePOJO = new VehiclePOJO();
+				vehiclePOJO.setEmpId(id);
+				model.addAttribute(id);
+				model.addAttribute("vehicle",vehiclePOJO);
+				return "private/vehicleregistration";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "redirect:login";
 		}
 	}
-	
+
 	@PostMapping("/addvehicle")
 	public String addVehicle(@Valid @ModelAttribute("vehicle") VehiclePOJO vehiclePOJO, BindingResult bindingResult,HttpSession session) {
-		
+
 		if(session.getAttribute("email") == null) {
 			return "redirect:loginpage";
 		}
@@ -51,7 +61,7 @@ public class VehicleController {
 			try {
 				boolean vehicleAdded = vehicleService.addVehicle(vehiclePOJO);
 				if(vehicleAdded) {
-					return "redirect:homepage";
+					return "redirect:planpage";
 				}else {
 					return "private/vehicleregistration";
 				}
@@ -60,6 +70,6 @@ public class VehicleController {
 				return "private/vehicleregistration";
 			}
 		}
-		
+
 	}
 }

@@ -1,9 +1,13 @@
 package com.parkingsystem.service;
 
 import com.parkingsystem.dao.LoginDAO;
-import com.parkingsystem.model.dto.EmployeeDTO;
 import com.parkingsystem.model.pojo.LoginPOJO;
 
+/**
+ * This is service class for login
+ * @author Sabir
+ *
+ */
 public class LoginService {
 
 	private static LoginService loginFacade = null;

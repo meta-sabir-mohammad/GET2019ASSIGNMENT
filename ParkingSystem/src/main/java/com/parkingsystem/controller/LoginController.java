@@ -14,6 +14,11 @@ import com.parkingsystem.model.pojo.LoginPOJO;
 import com.parkingsystem.service.EmployeeService;
 import com.parkingsystem.service.LoginService;
 
+/**
+ * This is login controller
+ * @author Sabir
+ *
+ */
 @Controller
 public class LoginController {
 

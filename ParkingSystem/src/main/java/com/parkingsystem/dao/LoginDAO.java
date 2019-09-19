@@ -10,10 +10,15 @@ import com.parkingsystem.factory.ConnectionFactory;
 
 public class LoginDAO {
 
+	//Singleton object of LoginDAO
 	private static LoginDAO loginDAO = null;
 	//Object of JdbcTemplate
 	private static JdbcTemplate jdbcTemplate = null;
 
+	/**
+	 * This method return object of LoginDAO
+	 * @return object of LoginDAO
+	 */
 	public static LoginDAO getInstance(){
 
 		if(loginDAO == null){
