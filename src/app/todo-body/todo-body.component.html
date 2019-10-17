@@ -29,6 +29,7 @@
                     <p class="p-0 m-0">{{todo.creationDate}}</p>
                     <p class="p-0 m-0 font-weight-bold">Completion Date: </p>
                     <p>{{todo.completionDate}}</p>
+                    
                     <app-todo-edit-form [id]="todo.id"></app-todo-edit-form>
                     <button class="btn btn-danger" (click)="deleteTodo(todo.id)"><i class="fa fa-trash"></i></button>
                 </div>

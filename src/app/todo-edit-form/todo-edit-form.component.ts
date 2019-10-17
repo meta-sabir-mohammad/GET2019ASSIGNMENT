@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
 import { Todo } from '../model/Todo';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl} from '@angular/forms';
 import { TodoService } from '../service/todo.service';
 
 @Component({
@@ -9,22 +8,34 @@ import { TodoService } from '../service/todo.service';
   templateUrl: './todo-edit-form.component.html',
   styleUrls: ['./todo-edit-form.component.css']
 })
-export class TodoEditFormComponent implements OnInit {
+export class TodoEditFormComponent implements OnInit,OnChanges {
 
   @Input('id') id:number;
+  currentId:number = this.id;
   todo:Todo;
   todoForm:FormGroup;
+  modalId:string;
+  modalDataTarget:string;
   constructor(private todoService:TodoService) {
    }
 
   ngOnInit() {
-    this.todo = this.todoService.getTodo(this.id);
-    this.todoForm = new FormGroup({
-      title: new FormControl(this.todo.title),
-      description: new FormControl(this.todo.description),
-      creationDate: new FormControl(this.todo.creationDate),
-      completionDate:new FormControl(this.todo.completionDate),
-      priority: new FormControl(this.todo.priority)
+    this.modalId = "exampleModal"+this.currentId;
+    this.modalDataTarget = "#"+this.modalId;
+    this.todo = this.todoService.getTodo(this.currentId);
+   this.todoForm = new FormGroup({
+      title: new FormControl(''),
+      description: new FormControl(''),
+      creationDate: new FormControl(null),
+      completionDate:new FormControl(null),
+      priority: new FormControl('')
     });
+  }
+  ngOnChanges(changes: SimpleChanges){
+    for (let propName in changes) {
+      let chng = changes[propName];
+      this.currentId = chng.currentValue;
+     this.todo = this.todoService.getTodo(this.currentId);
+    }
   }
 }
