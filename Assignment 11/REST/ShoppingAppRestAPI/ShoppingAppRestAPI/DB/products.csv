@@ -1,0 +1,16 @@
+ProductId,ProductName,Price,CategoryId,ImageUrl
+1,Mango,10,1,mango.jpg
+2,Apple,12,1,apple.jpg
+3,Guava,14,1,guava.jpg
+4,Banana,16,1,banana.jpg
+5,Strawberry,20,1,strawberry.jpg
+6,Fogg,250,2,fogg.jpg
+7,He-Respect,350,2,he.jpg
+8,Envy,550,2,envy.jpg
+9,Enigma,400,2,enigma.jpg
+10,Puma,2000,3,puma.jpg
+11,Reebok,9500,3,reebok.jpg
+12,Spark,4588,3,sparx.jpg
+13,Mac,78998,4,mac.jpg
+14,Dell,46000,4,dell.jpg
+15,Lenovo,85000,4,lenovo.jpg
